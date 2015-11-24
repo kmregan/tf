@@ -5,7 +5,7 @@ import numpy as np
 
 plotly.offline.init_notebook_mode()
 
-def plot_2d_regression_results(data, w, b, title):
+def plot_2d_regression_results(data, w, b, title, offline=True):
     '''Return plotly graph object suitable for Jupyter notebooks that
        holds a scatter plot of data examples with a hyperplane built
        from the model (w,b). The hyperplane represents the 
@@ -45,4 +45,5 @@ def plot_2d_regression_results(data, w, b, title):
         )
     )
     fig = go.Figure(data=data, layout=layout)
-    return plotly.offline.iplot(fig)
+    
+    return plotly.offline.iplot(fig) if offline else pltly.plot(fig)
